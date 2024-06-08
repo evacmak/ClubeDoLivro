@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+.page-img {
+  width: 70%;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #3ab1f6;
+  padding: 5px 20px;
+}
+
+.Navbar li,
+.Navbar a {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 20px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.selected {
+  text-shadow: 1px 0px 3px white;
+  color: #fff;
+  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
+  padding-bottom: 5px;
+}
+
+.Navbar.dark {
+  background: #515f7d;
+}
+
+.Navbar.light {
+  background: #aeafb1;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  max-height: 100%;
+}
+
+.App.light {
+  background-color: white;
+}
+
+.App.dark {
+  background-color: #2b364b;
+  color: #d6d8dc;
+}
+
+
+
+
+/* MEU CODIGO
+ */
+
+ .custom-card {
+  width: 50px;
+  height: 100px;
+}
+
