@@ -22,36 +22,11 @@ import {
           spacing={{ base: 8, md: 10 }}
           py={{ base: 20, md: 28 }}
           direction={{ base: 'column', md: 'row' }}>
-          <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Heading
-            lineHeight={1.1}
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
-            <Text
-              as={'span'}
-              position={'relative'}
-              display={'inline-block'} // Ensure it takes the right space
-              _after={{
-                content: '""',
-                width: '100%', // Full width of the text
-                height: '30%', // Adjust height as needed
-                position: 'absolute',
-                bottom: 0, // Align to the bottom
-                left: 0, // Align to the left
-                bg: 'pink',
-                zIndex: -1,
-              }}>
-              Clube do Livro
-            </Text>
-            <br />
-            <Text as={'span'} color={'pink.500'}>
-              Eva e Marta
-            </Text>
-          </Heading>
-            <Text color={'gray.500'}>
+          <Stack align={'center'} flex={1} spacing={{ base: 5, md: 10 }}>
+            <Text align={'start'} color={'gray.500'}>
               O Clube E&M foi fundado por duas amigas que têm um grande gosto em comum: a leitura.
               Os géneros que podes encontrar maioritariamente aqui são os seguintes:
-              <ul>
+              <ul >
                 <li>Fantasia 🧚‍♀️</li>
                 <li>Romance 🥰</li>
                 <li>Thrillers 👀</li>
@@ -64,10 +39,10 @@ import {
               rounded={'full'}
               size={'lg'}
               fontWeight={'normal'}
-              px={6}
-              colorScheme={'red'}
-              bg={'red.400'}
-              _hover={{ bg: 'red.500' }}>
+              px={50}
+              colorScheme={'gray'}
+              bg={'gray.400'}
+              _hover={{ bg: 'gray.500' }}>
               Quero juntar-me ao Clube
             </Button>
           {/*   <Button

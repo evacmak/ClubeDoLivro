@@ -1,5 +1,6 @@
 import ImageCard from "../components/ImageCard";
 import Hero from "../components/Hero";
+import ThreeColumns from "../components/ThreeColumns";
 import InfoPop from "../components/InfoPop";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -29,8 +30,14 @@ const Homepage = () => {
 
   return (
     <div>
+
+    <div>
+    <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '60px' }}>Clube do Livro</h1>
+    <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '40px' }}>Eva & Marta</h1>
+    </div>
+
       <Hero />
-      <InfoPop />
+      <ThreeColumns />
       <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Escolhas deste mês</h1>
 
       {books.length > 0 && (
@@ -64,8 +71,9 @@ const Homepage = () => {
           />
         </Icon>
       </Box>
+<InfoPop />
     </div>
   );
-};
+  };
 
 export default Homepage;
