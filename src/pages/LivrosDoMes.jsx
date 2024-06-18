@@ -1,6 +1,7 @@
 import ImageCard from '../components/ImageCard';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 
 const Livros = () => {
@@ -33,13 +34,28 @@ const Livros = () => {
           "https://www.googleapis.com/books/v1/volumes?q=%20powerless"
         );
         const ninthBook = await axios.get(
-          "https://www.googleapis.com/books/v1/volumes?q=%20wildfire"
+          "https://www.googleapis.com/books/v1/volumes?q=%20wildfire%hannah%grace"
         );
         const tenBook = await axios.get(
-          "https://www.googleapis.com/books/v1/volumes?q=%20it"
+          "https://www.googleapis.com/books/v1/volumes?q=%20it%stephen%king"
         );
   
-        setBooks([firstBook.data, secondBook.data, thirdBook.data, fourthBook.data, fifthBook.data, sixthBook.data, seventhBook.data, eighthBook.data, ninthBook.data, tenBook.data]);
+        const elevenBook = await axios.get(
+          "https://www.googleapis.com/books/v1/volumes?q=%20one%20dark%20window"
+        );
+        const twelveBook = await axios.get(
+          "https://www.googleapis.com/books/v1/volumes?q=%20Normal%20People"
+        );
+        const thirteenBook = await axios.get(
+          "https://www.googleapis.com/books/v1/volumes?q=maria%francisca%gama"
+        );
+        const fourteenBook = await axios.get(
+          "https://www.googleapis.com/books/v1/volumes?q=angie%kim"
+        );
+  
+        setBooks([firstBook.data, secondBook.data, thirdBook.data, fourthBook.data, 
+          fifthBook.data, sixthBook.data, seventhBook.data, eighthBook.data, ninthBook.data, 
+          tenBook.data, elevenBook.data, twelveBook.data, thirteenBook.data, fourteenBook.data]);
       } catch (error) {
         console.log("Error fetching the books", error);
       }
@@ -55,22 +71,38 @@ const Livros = () => {
         <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Livros 2024</h1>
   
         {books.length > 0 && (
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', margin: '3rem'}}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem'}}>
+          <Link to={`/cicatriz`}>
+            {books[12]?.items[0] && (
+              <ImageCard
+                src={books[12].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[12].items[0].volumeInfo?.title || 'No title available'}
+                meta={books[12].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
+                extra='Ficção'
+              />
+            )}
+            </Link>
+            {books[13]?.items[0] && (
+              <ImageCard
+                src={books[13].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[13].items[0].volumeInfo?.title || 'No title available'}
+                meta={books[13].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
+                extra='Thriller'
+              />
+            )}
             {books[0]?.items[0] && (
               <ImageCard
                 src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[0].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[0].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[0].items[0].volumeInfo?.subtitle || 'No subtitle available'}
                 extra='Romantasy 🔪❤️'
               />
             )}
             {books[1]?.items[0] && (
               <ImageCard
-                src={books[1].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[1].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[1].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[1].items[0].volumeInfo?.subtitle || 'No subtitle available'}
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
@@ -79,7 +111,6 @@ const Livros = () => {
                 src={books[2].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[2].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[2].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[2].items[0].volumeInfo?.subtitle || 'No subtitle available'}
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
@@ -88,8 +119,7 @@ const Livros = () => {
                 src={books[3].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[3].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[3].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[3].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Fantasia 🎪'
               />
             )}
             {books[4]?.items[0] && (
@@ -97,27 +127,24 @@ const Livros = () => {
                 src={books[4].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[4].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[4].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[4].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Fantasia ⚔️🖤'
               />
             )}
 
             {books[5]?.items[0] && (
               <ImageCard
-                src={books[5].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                src={books[5].items[2].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[5].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[5].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[5].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Fantasia 🐍💙'
               />
             )}
             {books[6]?.items[0] && (
               <ImageCard
-                src={books[6].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
-                header={books[6].items[0].volumeInfo?.title || 'No title available'}
+                src={books[6].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[6].items[1].volumeInfo?.title || 'No title available'}
                 meta={books[6].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[6].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Ficção'
               />
             )}
             {books[7]?.items[0] && (
@@ -125,8 +152,7 @@ const Livros = () => {
                 src={books[7].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[7].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[7].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[7].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Romantasy 💜'
               />
             )}
             {books[8]?.items[0] && (
@@ -134,7 +160,6 @@ const Livros = () => {
                 src={books[8].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[8].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[8].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[8].items[0].volumeInfo?.subtitle || 'No subtitle available'}
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
@@ -143,8 +168,23 @@ const Livros = () => {
                 src={books[9].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[9].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[9].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                description={books[9].items[0].volumeInfo?.subtitle || 'No subtitle available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Terror 🤡'
+              />
+            )}
+            {books[10]?.items[0] && (
+              <ImageCard
+                src={books[10].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[10].items[0].volumeInfo?.title || 'No title available'}
+                meta={books[10].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
+                extra='Fantasia 🃏'
+              />
+            )}
+            {books[11]?.items[0] && (
+              <ImageCard
+                src={books[11].items[3].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[11].items[0].volumeInfo?.title || 'No title available'}
+                meta={books[11].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
+                extra='Ficção'
               />
             )}
             

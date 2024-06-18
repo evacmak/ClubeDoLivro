@@ -12,6 +12,7 @@ import EditProject from './pages/EditProject';
 import { useContext } from 'react';
 import { ThemeContext } from './context/Theme.context';
 import { ChakraProvider } from '@chakra-ui/react'
+import Cicatriz from './pages/Cicatriz';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 <Routes>
   <Route path='/' element={<Homepage />}/>
   <Route path='/livros' element={<LivrosDoMes />}/>
+  <Route path='/cicatriz' element={<Cicatriz />}/>
   <Route path='/projects' element={<Projects />}/>
   <Route path='/comunidade' element={<Comunidade />}/>
   <Route path='*' element={<Teapot />}/>

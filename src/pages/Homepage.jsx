@@ -47,16 +47,14 @@ const Homepage = () => {
               src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
               header={books[0].items[0].volumeInfo?.title || 'No title available'}
               meta={books[0].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-              description={books[0].items[0].volumeInfo?.subtitle || 'No subtitle available'}
               extra='Romantasy 🔪❤️'
             />
           )}
           {books[1]?.items[0] && (
             <ImageCard
-              src={books[1].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+              src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
               header={books[1].items[0].volumeInfo?.title || 'No title available'}
               meta={books[1].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-              description={books[1].items[0].volumeInfo?.subtitle || 'No subtitle available'}
               extra='Romance 👩‍❤️‍👨'
             />
           )}
