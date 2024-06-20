@@ -65,7 +65,59 @@
 }
 
 
-.cicatriz {
+/* .cicatriz {
   width: 300px;
   height: auto;
+}
+ */
+
+/* Container for the entire book details */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 300px;
+  max-width: 3000px;
+  margin: 0 auto; 
+  background: #fff;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  gap: 20px;
+}
+
+/* Flex imagem e texto */
+.book-content {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+
+/* Styling imagem */
+.book-image {
+  width: 1000px;
+  height: auto;
+  /* border-radius: 10px; */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Detalhes livros */
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  text-align: justify;
+}
+
+.book-title {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+
+.button {
+margin-top: 200px;
 }
