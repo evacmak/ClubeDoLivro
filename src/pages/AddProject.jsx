@@ -21,7 +21,7 @@ const AddProject = () => {
             const project = {
                 title, description
             }
-            await axios.post('https://project-management-api-4641927fee65.herokuapp.com/projects', project)
+            await axios.post('http://localhost:5005/reviews', project)
 
             //once the project is created redirect the user to the list of projects (webpage)
             navigate("/projects")
