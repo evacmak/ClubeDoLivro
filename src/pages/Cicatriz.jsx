@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import cicatrizImage from '../images/cicatriz.webp';
-import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack, Stack, Avatar} from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack, Stack, Avatar, CardBody, Text, Card, CardFooter} from '@chakra-ui/react';
+import { useNavigate } from "react-router-dom";
 
 const Cicatriz = () => {
   const [book, setBook] = useState(null);
@@ -28,6 +29,8 @@ const Cicatriz = () => {
   const handleRating = (value) => {
     setRating(value);
   };
+
+  const navigate = useNavigate();
 
   const getBooks = async () => {
     try {
@@ -60,6 +63,15 @@ const Cicatriz = () => {
     getBooks();
   }, []);
 
+  const deleteProject = async (id) =>  {
+    try {
+      await axios.delete(`http://localhost:5005/reviews/${id}`);
+      navigate('/cicatriz');
+    } catch (error) {
+      console.log('error deleting the project');
+    }
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -89,7 +101,7 @@ const Cicatriz = () => {
   };
 
   if (loading) {
-    return <p className="loading">Loading...</p>;
+    return <p className="loading">A carregar...</p>;
   }
 
   if (error) {
@@ -199,20 +211,43 @@ const Cicatriz = () => {
       </Box>
       {reviews.length > 0 && (
         <Center>
-          <Box bg='white' w='67%' p={4} color='black'>
-            <h2 style={{ color: 'black', fontfamily: 'Bebas Neue, sans-serif', fontSize: '40px' }}>Reviews:</h2>
-            {reviews.map((review, index) => (
-              <Box key={index} borderWidth='1px' borderRadius='lg' overflow='hidden' p={4} mb={4} bg='white' color='dark-gray'>
-              <Stack direction='row'>
-              <Avatar name={review.name}/>
-              </Stack>
-                <p><strong>Nome: </strong>{review.name}</p>
-                <p><strong>Como me senti: </strong>{review.emoji}</p>
-                <p><strong>Rating: </strong>{review.rating}</p>
-                <p><strong>Review: </strong>{review.comment}</p>
-              </Box>
-            ))}
-          </Box>
+    <Box bg='white' w='67%' p={4} color='black'>
+      <h2 style={{ color: 'black', fontFamily: 'Lato, sans-serif', fontSize: '30px' }}>Reviews:</h2>
+      {reviews.map((review, index) => (
+
+        <Card key={index}
+  direction={{ base: 'column', sm: 'row' }}
+  overflow='hidden'
+  variant='outline'
+>
+
+  <Avatar bg='red.500' color='white' name={review.name} size='md' mr={4} marginLeft='30px' marginTop='20px'/>
+  <Stack>
+    <CardBody>
+
+      <Text py='2' textAlign={"justify"}>
+      <p><strong>Nome: </strong>{review.name}</p>
+              <p><strong>Como me senti: </strong>{review.emoji}</p>
+              <p><strong>Rating: </strong>{review.rating}</p>
+              <p><strong>Review: </strong>{review.comment}</p>
+      </Text>
+    </CardBody>
+<CardFooter>
+      <Button variant='solid' colorScheme='blue' >
+        Editar
+      </Button>
+      <Button variant='solid' colorScheme='blue' marginLeft='10px' onClick={() => deleteProject(review.id)}>
+        Apagar
+      </Button>
+    </CardFooter> 
+  </Stack>
+</Card>
+
+
+
+    
+      ))}
+    </Box>
         </Center>
       )}
     </>

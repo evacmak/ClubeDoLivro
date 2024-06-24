@@ -9,8 +9,8 @@
 .Navbar {
   display: flex;
   justify-content: space-between;
-  background: #000000;
-  padding: 20px 30px;
+  background: #653657;
+  padding: 20px 40px;
 }
 
 .Navbar li,
@@ -20,7 +20,7 @@
   display: inline-block;
   margin: 0px 30px;
   font-size: 1.2rem;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 /* .selected {
@@ -30,13 +30,13 @@
   padding-bottom: 5px;
 } */
 
-.Navbar.dark {
+/* .Navbar.dark {
   background: #000000;
 }
 
 .Navbar.light {
   background: #FFFFFF;
-}
+} */
 
 .App {
   text-align: center;
@@ -53,6 +53,10 @@
   color: #e5e5e5;
 }
 
+.Cabecalho {
+  font-family: "Bebas Neue", sans-serif;
+  color: #e5e5e5;
+}
 
 
 

@@ -6,16 +6,18 @@ const Navbar = () => {
     const {theme, toggleTheme} = useContext(ThemeContext);
 
     return <nav className={`Navbar ${theme}`}>
+
+{/* ADICIONAR LOGO
+        <img src={logo} alt="Logo" className="nav-logo" /> */}
+
         <ul>
             <NavLink className={({isActive}) => (isActive ? 'selected' : '')} to="/">Home</NavLink>
             <NavLink className={({isActive}) => (isActive ? 'selected' : '')} to="/livros">Livros</NavLink>
-            <NavLink className={({isActive}) => (isActive ? 'selected' : '')} to="/comunidade">Comunidade</NavLink>
-            <NavLink className={({isActive}) => (isActive ? 'selected' : '')} to="/projects">Projects</NavLink>
         </ul>
         
-        <button onClick={toggleTheme}>
+       {/*  <button onClick={toggleTheme}>
         {theme === 'light' ? 'dark' : 'light'}
-        </button>
+        </button> */}
     </nav>
 };
 
