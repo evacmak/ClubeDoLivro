@@ -135,11 +135,6 @@
 
 }
 
-.comprar-livro {
-  font-family: "Permanent Marker", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
 
 .button-book-details {
   width: 150px;
@@ -173,4 +168,12 @@
   font-weight: 400;
   font-style: normal;
   margin-top: 0px;
+}
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+.botao-review {
+  font-family: "Lato", sans-serif;
 }

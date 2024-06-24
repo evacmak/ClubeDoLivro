@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import cicatrizImage from '../images/cicatriz.webp';
-import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack } from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack, Stack, Avatar} from '@chakra-ui/react';
 
 const Cicatriz = () => {
   const [book, setBook] = useState(null);
@@ -13,17 +13,14 @@ const Cicatriz = () => {
   const [emoji, setEmoji] = useState('');
   const [rating, setRating] = useState('');
 
-  // Handler for name input
   const handleName = (event) => {
     setName(event.target.value);
   };
 
-  // Handler for comment input
   const handleComment = (event) => {
     setComment(event.target.value);
   };
 
-  // Handler for emoji selection
   const handleEmoji = (value) => {
     setEmoji(value);
   };
@@ -70,7 +67,7 @@ const Cicatriz = () => {
       const review = {
         name,
         emoji,
-        rating, // Add rating to the review object
+        rating, 
         comment,
         apiId: book.items[0].id
       };
@@ -113,7 +110,7 @@ const Cicatriz = () => {
             className="book-image"
             src={cicatrizImage}
             alt={bookData.title}
-            style={{ width: '200px' }}
+            style={{ width: '300px' }}
           />
           <div className="details">
             <h1 className="book-title">{bookData.title || 'No title available'}</h1>
@@ -124,7 +121,7 @@ const Cicatriz = () => {
             <p className="book-meta"><strong>Publicado em:</strong> {bookData.publishedDate || 'Não disponível'}</p>
             <p className="book-description">{bookData.description || 'Não disponível'}</p>
             <Button className="comprar-livro" href={bookData.infoLink} target="_blank" rel="noopener noreferrer" colorScheme="gray"
-            sx={{ fontFamily: 'Permanent Marker, cursive', fontSize: '25px'}} height={'50px'}>
+            sx={{ fontFamily: "Lato, sans-serif", fontSize: '20px'}} height={'50px'}>
               Comprar o livro
             </Button>
           </div>
@@ -133,7 +130,7 @@ const Cicatriz = () => {
       <Box bg='#E53E3E' w='100%' p={4} color='white'>
         <form onSubmit={handleSubmit}>
           <FormControl>
-            <FormLabel sx={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '40px'}} marginLeft={'200px'}>Adiciona a tua review deste livro</FormLabel>
+            <FormLabel sx={{ fontFamily: 'Lato, sans-serif', fontSize: '25px', fontWeight: 'bold'}} marginLeft={'200px'}>Adiciona a tua review deste livro</FormLabel>
             <Input
               variant='filled'
               color='black'
@@ -191,20 +188,24 @@ const Cicatriz = () => {
               placeholder='Se escreveres spoilers, adiciona *SPOILER ALERT* no início da review'
               width='800px'
               height='200px'
+              fontFamily= "Lato, sans-serif"
               value={comment}
               onChange={handleComment}
             />
             <FormHelperText></FormHelperText>
-            <Button type="submit" colorScheme="gray" mt={4}>Adicionar Review</Button>
+            <Button type="submit" colorScheme="gray" mt={4} className="botao-review" style={{fontfamily: 'Lato, sans-serif'}}>Adicionar Review</Button>
           </FormControl>
         </form>
       </Box>
       {reviews.length > 0 && (
         <Center>
-          <Box bg='white' w='80%' p={4} color='black'>
-            <h2 style={{ color: 'black' }}>Reviews:</h2> {/* Ensure header text is black */}
+          <Box bg='white' w='67%' p={4} color='black'>
+            <h2 style={{ color: 'black', fontfamily: 'Bebas Neue, sans-serif', fontSize: '40px' }}>Reviews:</h2>
             {reviews.map((review, index) => (
               <Box key={index} borderWidth='1px' borderRadius='lg' overflow='hidden' p={4} mb={4} bg='white' color='dark-gray'>
+              <Stack direction='row'>
+              <Avatar name={review.name}/>
+              </Stack>
                 <p><strong>Nome: </strong>{review.name}</p>
                 <p><strong>Como me senti: </strong>{review.emoji}</p>
                 <p><strong>Rating: </strong>{review.rating}</p>
