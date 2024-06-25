@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #FFFAF3;
 }
 
 .page-img {
@@ -9,7 +10,7 @@
 .Navbar {
   display: flex;
   justify-content: space-between;
-  background: #653657;
+  background: #FFFAF3;
   padding: 20px 40px;
 }
 
@@ -20,7 +21,7 @@
   display: inline-block;
   margin: 0px 30px;
   font-size: 1.2rem;
-  color: rgb(255, 255, 255);
+  color: #000000;
 }
 
 /* .selected {
@@ -42,20 +43,6 @@
   text-align: center;
   min-height: 100vh;
   max-height: 100%;
-}
-
-.App.light {
-  background-color: white;
-}
-
-.App.dark {
-  background-color: #505050;
-  color: #e5e5e5;
-}
-
-.Cabecalho {
-  font-family: "Bebas Neue", sans-serif;
-  color: #e5e5e5;
 }
 
 
@@ -83,7 +70,7 @@
   padding: 40px 200px;
   max-width: 3000px;
   margin: 0 auto; 
-  background: #fff;
+  background: #FFFAF3;
   border-radius: 12px;
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   gap: 20px;
@@ -135,6 +122,7 @@
 
 .month-book {
   margin-top: 0px;
+  color: #3526DE;
 
 
 }

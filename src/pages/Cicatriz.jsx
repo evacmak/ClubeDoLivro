@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import cicatrizImage from '../images/cicatriz.webp';
 import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack, Stack, Avatar, CardBody, Text, Card, CardFooter} from '@chakra-ui/react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cicatriz = () => {
   const [book, setBook] = useState(null);
@@ -42,11 +42,9 @@ const Cicatriz = () => {
       if (bookData && bookData.items.length > 0) {
         setBook(bookData);
 
-        const reviewsResponse = await axios.get("http://localhost:5005/reviews");
-        const bookReviews = reviewsResponse.data.filter(
-          reviewedBook => reviewedBook.apiId === bookData.items[0].id
-        );
-        setReviews(bookReviews);
+        await getReviews(bookData)
+
+
       } else {
         setBook(null);
         setReviews([]);
@@ -59,14 +57,27 @@ const Cicatriz = () => {
     }
   };
 
+  const getReviews = async (bookData) => {
+    try {
+      
+      const reviewsResponse = await axios.get("http://localhost:5005/reviews");
+      const bookReviews = reviewsResponse.data.filter(
+        reviewedBook => reviewedBook.apiId === bookData.items[0].id
+      );
+      setReviews(bookReviews);
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+
   useEffect(() => {
     getBooks();
   }, []);
 
-  const deleteProject = async (id) =>  {
+  const deleteReview = async (id) =>  {
     try {
       await axios.delete(`http://localhost:5005/reviews/${id}`);
-      navigate('/cicatriz');
+      getReviews(book)
     } catch (error) {
       console.log('error deleting the project');
     }
@@ -132,17 +143,17 @@ const Cicatriz = () => {
             <p className="book-meta"><strong>Publicado por:</strong> {bookData.publisher || 'Não disponível'}</p>
             <p className="book-meta"><strong>Publicado em:</strong> {bookData.publishedDate || 'Não disponível'}</p>
             <p className="book-description">{bookData.description || 'Não disponível'}</p>
-            <Button className="comprar-livro" href={bookData.infoLink} target="_blank" rel="noopener noreferrer" colorScheme="gray"
+            <Button className="comprar-livro" href={bookData.infoLink} target="_blank" rel="noopener noreferrer" bg='#3526DE' color='#FFFAF3'
             sx={{ fontFamily: "Lato, sans-serif", fontSize: '20px'}} height={'50px'}>
               Comprar o livro
             </Button>
           </div>
         </div>
       </div>
-      <Box bg='#E53E3E' w='100%' p={4} color='white'>
+      <Box bg='#FFFAF3 ' w='100%' p={4} color='white'>
         <form onSubmit={handleSubmit}>
           <FormControl>
-            <FormLabel sx={{ fontFamily: 'Lato, sans-serif', fontSize: '25px', fontWeight: 'bold'}} marginLeft={'200px'}>Adiciona a tua review deste livro</FormLabel>
+            <FormLabel sx={{ fontFamily: 'Lato, sans-serif', fontSize: '25px', fontWeight: 'bold', color: '#333333'}} marginLeft={'200px'}>Adiciona a tua review deste livro</FormLabel>
             <Input
               variant='filled'
               color='black'
@@ -205,23 +216,24 @@ const Cicatriz = () => {
               onChange={handleComment}
             />
             <FormHelperText></FormHelperText>
-            <Button type="submit" colorScheme="gray" mt={4} className="botao-review" style={{fontfamily: 'Lato, sans-serif'}}>Adicionar Review</Button>
+            <Button type="submit" bg='#3526DE' color='#FFFAF3' mt={4} className="botao-review" style={{fontfamily: 'Lato, sans-serif', fontSize: '14px'}}>Adicionar Review</Button>
           </FormControl>
         </form>
       </Box>
       {reviews.length > 0 && (
         <Center>
-    <Box bg='white' w='67%' p={4} color='black'>
-      <h2 style={{ color: 'black', fontFamily: 'Lato, sans-serif', fontSize: '30px' }}>Reviews:</h2>
+    <Box bg='#FFFAF3' w='67%' p={4} color='black'>
+      <h2 style={{ color: 'black', fontFamily: 'Lato, sans-serif', fontSize: '30px', marginTop: '20px' }}>Reviews:</h2>
       {reviews.map((review, index) => (
 
         <Card key={index}
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
+  marginBottom={'10px'}
 >
 
-  <Avatar bg='red.500' color='white' name={review.name} size='md' mr={4} marginLeft='30px' marginTop='20px'/>
+  <Avatar bg='#DF7F7F' color='#333333' name={review.name} size='md' mr={4} marginLeft='30px' marginTop='20px'/>
   <Stack>
     <CardBody>
 
@@ -233,10 +245,12 @@ const Cicatriz = () => {
       </Text>
     </CardBody>
 <CardFooter>
-      <Button variant='solid' colorScheme='blue' >
+      <Button variant='solid' bg='#3526DE' color='#FFFAF3' style={{fontFamily: 'Lato, sans-serif', fontSize: '14px'}} >
+      <Link to={`/review/${review.id}/edit`}>
         Editar
+      </Link>
       </Button>
-      <Button variant='solid' colorScheme='blue' marginLeft='10px' onClick={() => deleteProject(review.id)}>
+      <Button variant='solid' bg='#333333' color='#FFFAF3' marginLeft='10px' style={{fontFamily: 'Lato, sans-serif', fontSize: '14px'}} onClick={() => deleteReview(review.id)}>
         Apagar
       </Button>
     </CardFooter> 
