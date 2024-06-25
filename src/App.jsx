@@ -23,7 +23,7 @@ function App() {
 <Routes>
   <Route path='/' element={<Homepage />}/>
   <Route path='/livros' element={<LivrosDoMes />}/>
-  <Route path='/cicatriz' element={<Cicatriz />}/>
+  <Route path='/livro/:title' element={<Cicatriz />}/>
   <Route path='*' element={<Teapot />}/>
   <Route path='/review/:reviewId/edit' element={<EditReview />} />
 </Routes>

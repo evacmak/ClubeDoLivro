@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import cicatrizImage from '../images/cicatriz.webp';
 import { Box, FormControl, FormLabel, FormHelperText, Input, Button, Center, Radio, RadioGroup, HStack, Stack, Avatar, CardBody, Text, Card, CardFooter} from '@chakra-ui/react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Cicatriz = () => {
   const [book, setBook] = useState(null);
@@ -13,6 +13,8 @@ const Cicatriz = () => {
   const [comment, setComment] = useState('');
   const [emoji, setEmoji] = useState('');
   const [rating, setRating] = useState('');
+  const [month, setMonth] = useState('');
+  const {title} = useParams()
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -30,19 +32,22 @@ const Cicatriz = () => {
     setRating(value);
   };
 
-  const navigate = useNavigate();
 
   const getBooks = async () => {
     try {
+      const updatedTitle = title.replace('-', '%')
       const response = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=maria%20francisca%20gama"
+        `https://www.googleapis.com/books/v1/volumes?q=${updatedTitle}`
       );
       const bookData = response.data;
+      console.log(bookData)
 
       if (bookData && bookData.items.length > 0) {
         setBook(bookData);
 
         await getReviews(bookData)
+        getMonth(bookData.items[0].id)
+
 
 
       } else {
@@ -70,6 +75,19 @@ const Cicatriz = () => {
     }
   }
 
+  const getMonth = async(id) => {
+
+    try {
+      const response = await axios.get("http://localhost:5005/books")
+
+      const thisBook = response.data.find(book => book.apiId === id)
+      setMonth(thisBook.month)
+    } catch (error) {
+      console.log('error getting the month',error)
+    }
+
+  }
+
   useEffect(() => {
     getBooks();
   }, []);
@@ -81,6 +99,10 @@ const Cicatriz = () => {
     } catch (error) {
       console.log('error deleting the project');
     }
+  }
+
+  const getBiggerImage = (url) => {
+    return url.split('&zoom=1')[0].replace('http', 'https')
   }
 
   const handleSubmit = async (event) => {
@@ -131,13 +153,13 @@ const Cicatriz = () => {
         <div className="book-content">
           <img
             className="book-image"
-            src={cicatrizImage}
+            src={getBiggerImage(bookData.imageLinks.thumbnail)}
             alt={bookData.title}
             style={{ width: '300px' }}
           />
           <div className="details">
             <h1 className="book-title">{bookData.title || 'No title available'}</h1>
-            <h2 className="month-book">Mês: Julho</h2>
+            <h2 className="month-book">Mês: {month}</h2>
             <h2 className="book-authors">{bookData.authors?.join(', ') || 'Não disponível'}</h2>
             <p className="book-meta">{bookData.categories?.join(', ') || 'Não disponível'}</p>
             <p className="book-meta"><strong>Publicado por:</strong> {bookData.publisher || 'Não disponível'}</p>

@@ -64,6 +64,10 @@ const Livros = () => {
     useEffect(() => {
       getBooks();
     }, []);
+
+    const formatTitle = (title) => {
+      return title.toLowerCase().replace(' ', '-')
+    }
   
     return (
       <div>
@@ -72,7 +76,7 @@ const Livros = () => {
   
         {books.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem'}}>
-          <Link to={`/cicatriz`}>
+          <Link to={`/livro/${formatTitle(books[12].items[0].volumeInfo?.title)}`}>
             {books[12]?.items[0] && (
               <ImageCard
                 src={books[12].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -82,6 +86,7 @@ const Livros = () => {
               />
             )}
             </Link>
+            <Link to={`/livro/${formatTitle(books[13].items[0].volumeInfo?.title)}`}>
             {books[13]?.items[0] && (
               <ImageCard
                 src={books[13].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -90,6 +95,8 @@ const Livros = () => {
                 extra='Thriller'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[0].items[0].volumeInfo?.title)}`}>
             {books[0]?.items[0] && (
               <ImageCard
                 src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -98,6 +105,7 @@ const Livros = () => {
                 extra='Romantasy 🔪❤️'
               />
             )}
+            </Link>
             {books[1]?.items[0] && (
               <ImageCard
                 src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
