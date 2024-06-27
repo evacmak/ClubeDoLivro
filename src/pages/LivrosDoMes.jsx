@@ -76,8 +76,8 @@ const Livros = () => {
   
         {books.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem'}}>
-          <Link to={`/livro/${formatTitle(books[12].items[0].volumeInfo?.title)}`}>
-            {books[12]?.items[0] && (
+          <Link to={`/livro/${formatTitle(books[12].items[0].volumeInfo?.title)+'-'+formatTitle(books[12].items[0].volumeInfo?.authors?.join(', '))}`}>
+          {books[12]?.items[0] && (
               <ImageCard
                 src={books[12].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[12].items[0].volumeInfo?.title || 'No title available'}
@@ -86,7 +86,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[13].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[13].items[0].volumeInfo?.title)+'-'+formatTitle(books[13].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[13]?.items[0] && (
               <ImageCard
                 src={books[13].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -96,7 +96,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[0].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[0].items[0].volumeInfo?.title)+'-'+formatTitle(books[0].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[0]?.items[0] && (
               <ImageCard
                 src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -106,7 +106,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[1].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[1].items[0].volumeInfo?.title)+'-'+formatTitle(books[1].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[1]?.items[0] && (
               <ImageCard
                 src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -116,7 +116,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[2].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[2].items[0].volumeInfo?.title)+'-'+formatTitle(books[2].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[2]?.items[0] && (
               <ImageCard
                 src={books[2].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -126,7 +126,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[3].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[3].items[0].volumeInfo?.title)+'-'+formatTitle(books[3].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[3]?.items[0] && (
               <ImageCard
                 src={books[3].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -136,7 +136,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[4].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[4].items[0].volumeInfo?.title)+'-'+formatTitle(books[4].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[4]?.items[0] && (
               <ImageCard
                 src={books[4].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -146,7 +146,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[5].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[5].items[0].volumeInfo?.title)+'-'+formatTitle(books[5].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[5]?.items[0] && (
               <ImageCard
                 src={books[5].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -156,7 +156,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[6].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[6].items[0].volumeInfo?.title)+'-'+formatTitle(books[6].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[6]?.items[0] && (
               <ImageCard
                 src={books[6].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -166,7 +166,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[7].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[7].items[0].volumeInfo?.title)}-${books[7].items[0].volumeInfo?.authors?.join(', ')}`}>
             {books[7]?.items[0] && (
               <ImageCard
                 src={books[7].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -176,7 +176,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[8].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[8].items[0].volumeInfo?.title)+'-'+formatTitle(books[8].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[8]?.items[0] && (
               <ImageCard
                 src={books[8].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -186,7 +186,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[9].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[9].items[0].volumeInfo?.title)+'-'+formatTitle(books[9].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[9]?.items[0] && (
               <ImageCard
                 src={books[9].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -196,7 +196,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[10].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[10].items[0].volumeInfo?.title)+'-'+formatTitle(books[10].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[10]?.items[0] && (
               <ImageCard
                 src={books[10].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -206,7 +206,7 @@ const Livros = () => {
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[11].items[0].volumeInfo?.title)}`}>
+            <Link to={`/livro/${formatTitle(books[11].items[0].volumeInfo?.title)+'-'+formatTitle(books[11].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[11]?.items[0] && (
               <ImageCard
                 src={books[11].items[3].volumeInfo?.imageLinks?.thumbnail || ''}

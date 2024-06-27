@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { CardBody, Text, Button, Input, Textarea } from '@chakra-ui/react';
+import {Button, Center, Box, Radio, RadioGroup, FormControl, FormLabel, HStack, FormHelperText, Input } from '@chakra-ui/react';
 
 const EditReview = () => {
     const [name, setName] = useState("");
@@ -10,8 +10,14 @@ const EditReview = () => {
     const [emoji, setEmoji] = useState("");
     const [rating, setRating] = useState("");
     const [apiId, setApiId] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams("");
     const navigate = useNavigate();
     const { reviewId } = useParams();
+
+    // Debugging: Log the reviewId
+    useEffect(() => {
+        console.log('reviewId:', reviewId);
+    }, [reviewId]);
 
     const handleName = (event) => {
         setName(event.target.value);
@@ -29,27 +35,32 @@ const EditReview = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Debugging: Log the form data before submitting
+        console.log('Form data before submitting:', { name, comment, emoji, rating, apiId });
+
         try {
             const review = { name, comment, emoji, rating, apiId };
-            // Put edits an existing review
             await axios.put(`https://book-club-server.onrender.com/reviews/${reviewId}`, review);
-            // Redirect after submission
-            navigate(`/cicatriz`);
+            const title = searchParams.get("title")
+            navigate(`/livro/${title}`);
         } catch (error) {
-            console.log('Error updating the review', error);
+            console.log('Error updating the review:', error);
         }
     };
 
     const getSingleReview = async (id) => {
         try {
             const response = await axios.get(`https://book-club-server.onrender.com/reviews/${id}`);
-            setName(response.data.name);
-            setComment(response.data.comment);
-            setEmoji(response.data.emoji);
-            setRating(response.data.rating);
-            setApiId(response.data.apiId);
+            // Debugging: Log the API response
+            console.log('API response:', response.data);
+
+            setName(response.data.name || '');
+            setComment(response.data.comment || '');
+            setEmoji(response.data.emoji || '');
+            setRating(response.data.rating || '');
+            setApiId(response.data.apiId || '');
         } catch (error) {
-            console.log('Error fetching the review', error);
+            console.log('Error fetching the review:', error);
         }
     };
 
@@ -61,18 +72,67 @@ const EditReview = () => {
         <div>
             <h2>Edit Review</h2>
             <form onSubmit={handleSubmit}>
-                <CardBody>
-                    <Text py='2' textAlign="justify">
-                        <p><strong>Nome:</strong></p>
-                        <Input type="text" value={name} onChange={handleName} />
-                        <p><strong>Como me senti:</strong></p>
-                        <Textarea value={comment} onChange={handleComment} />
-                        <p><strong>Emoji:</strong></p>
-                        <Input type="text" value={emoji} onChange={handleEmoji} />
-                        <p><strong>Rating:</strong></p>
-                        <Input type="number" value={rating} onChange={handleRating} />
-                    </Text>
-                </CardBody>
+            <Input
+              variant='filled'
+              color='black'
+              bg='white'
+              type='text'
+              name='name'
+              placeholder='Nome'
+              width='800px'
+              height='50px'
+              marginBottom={'20px'}
+              value={name}
+              onChange={handleName}
+            />
+
+            <Center>
+              <Box name='emojis' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+                <FormControl as='fieldset'>
+                  <FormLabel as='legend'>Como te sentiste ao ler o livro?</FormLabel>
+                  <RadioGroup value={emoji} onChange={handleEmoji}>
+                    <HStack spacing='24px'>
+                      <Radio value='😭'><p style={{fontSize: '20px'}}>😭</p></Radio>
+                      <Radio value='😱'><p style={{fontSize: '20px'}}>😱</p></Radio>
+                      <Radio value='🤡'><p style={{fontSize: '20px'}}>🤡</p></Radio>
+                      <Radio value='🥰'><p style={{fontSize: '20px'}}>🥰</p></Radio>
+                    </HStack>
+                  </RadioGroup>
+                  <FormHelperText></FormHelperText>
+                </FormControl>
+              </Box>
+            </Center>
+            <Center>
+              <Box name='rating' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+                <FormControl as='fieldset'>
+                  <FormLabel as='legend'>Quantas estrelas dás ao livro?</FormLabel>
+                  <RadioGroup value={rating} onChange={handleRating}>
+                    <HStack spacing='24px'>
+                      <Radio value='⭐️'><p style={{fontSize: '20px'}}>⭐️</p></Radio>
+                      <Radio value='⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️</p></Radio>
+                      <Radio value='⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️</p></Radio>
+                      <Radio value='⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️</p></Radio>
+                      <Radio value='⭐️⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️⭐️</p></Radio>
+                    </HStack>
+                  </RadioGroup>
+                  <FormHelperText></FormHelperText>
+                </FormControl>
+              </Box>
+            </Center>
+
+            <Input
+              variant='filled'
+              color='black'
+              bg= 'white'
+              type='text'
+              name='comment'
+              placeholder='Se escreveres spoilers, adiciona *SPOILER ALERT* no início da review'
+              width='800px'
+              height='200px'
+              fontFamily= "Lato, sans-serif"
+              value={comment}
+              onChange={handleComment}
+            />
                 <Button type="submit" variant='solid' bg='#3526DE' color='#FFFAF3' style={{ fontFamily: 'Lato, sans-serif', fontSize: '14px' }}>
                     Editar
                 </Button>
