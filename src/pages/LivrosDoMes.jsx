@@ -106,6 +106,7 @@ const Livros = () => {
               />
             )}
             </Link>
+            <Link to={`/livro/${formatTitle(books[1].items[0].volumeInfo?.title)}`}>
             {books[1]?.items[0] && (
               <ImageCard
                 src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -114,6 +115,8 @@ const Livros = () => {
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[2].items[0].volumeInfo?.title)}`}>
             {books[2]?.items[0] && (
               <ImageCard
                 src={books[2].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -122,6 +125,8 @@ const Livros = () => {
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[3].items[0].volumeInfo?.title)}`}>
             {books[3]?.items[0] && (
               <ImageCard
                 src={books[3].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -130,6 +135,8 @@ const Livros = () => {
                 extra='Fantasia 🎪'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[4].items[0].volumeInfo?.title)}`}>
             {books[4]?.items[0] && (
               <ImageCard
                 src={books[4].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -138,15 +145,18 @@ const Livros = () => {
                 extra='Fantasia ⚔️🖤'
               />
             )}
-
+            </Link>
+            <Link to={`/livro/${formatTitle(books[5].items[0].volumeInfo?.title)}`}>
             {books[5]?.items[0] && (
               <ImageCard
-                src={books[5].items[2].volumeInfo?.imageLinks?.thumbnail || ''}
+                src={books[5].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[5].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[5].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
                 extra='Fantasia 🐍💙'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[6].items[0].volumeInfo?.title)}`}>
             {books[6]?.items[0] && (
               <ImageCard
                 src={books[6].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -155,6 +165,8 @@ const Livros = () => {
                 extra='Ficção'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[7].items[0].volumeInfo?.title)}`}>
             {books[7]?.items[0] && (
               <ImageCard
                 src={books[7].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -163,6 +175,8 @@ const Livros = () => {
                 extra='Romantasy 💜'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[8].items[0].volumeInfo?.title)}`}>
             {books[8]?.items[0] && (
               <ImageCard
                 src={books[8].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -171,6 +185,8 @@ const Livros = () => {
                 extra='Romance 👩‍❤️‍👨'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[9].items[0].volumeInfo?.title)}`}>
             {books[9]?.items[0] && (
               <ImageCard
                 src={books[9].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -179,6 +195,8 @@ const Livros = () => {
                 extra='Terror 🤡'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[10].items[0].volumeInfo?.title)}`}>
             {books[10]?.items[0] && (
               <ImageCard
                 src={books[10].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -187,6 +205,8 @@ const Livros = () => {
                 extra='Fantasia 🃏'
               />
             )}
+            </Link>
+            <Link to={`/livro/${formatTitle(books[11].items[0].volumeInfo?.title)}`}>
             {books[11]?.items[0] && (
               <ImageCard
                 src={books[11].items[3].volumeInfo?.imageLinks?.thumbnail || ''}
@@ -195,6 +215,8 @@ const Livros = () => {
                 extra='Ficção'
               />
             )}
+            </Link>
+
             
           </div>
         )}
