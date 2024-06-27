@@ -34,7 +34,7 @@ const EditReview = () => {
                 name, comment, emoji, rating, apiId
             }
             //put edits something that is already there
-            await axios.put(`http://localhost:5005/reviews/${reviewId}`, review)
+            await axios.put(`https://book-club-server.onrender.com/reviews/${reviewId}`, review)
 
             //once the project is created redirect the user to the list of projects (webpage)
             navigate(`/cicatriz`);
@@ -46,7 +46,7 @@ const EditReview = () => {
 
     const getSingleReview = async (id) => {
         try {
-          const response = await axios.get(`http://localhost:5005/reviews/${id}`);
+          const response = await axios.get(`https://book-club-server.onrender.com/reviews/${id}`);
           setName(response.data.name);
           setComment(response.data.comment);
           setEmoji(response.data.emoji);

@@ -65,7 +65,7 @@ const Cicatriz = () => {
   const getReviews = async (bookData) => {
     try {
       
-      const reviewsResponse = await axios.get("http://localhost:5005/reviews");
+      const reviewsResponse = await axios.get("https://book-club-server.onrender.com/reviews");
       const bookReviews = reviewsResponse.data.filter(
         reviewedBook => reviewedBook.apiId === bookData.items[0].id
       );
@@ -78,7 +78,7 @@ const Cicatriz = () => {
   const getMonth = async(id) => {
 
     try {
-      const response = await axios.get("http://localhost:5005/books")
+      const response = await axios.get("https://book-club-server.onrender.com/books")
 
       const thisBook = response.data.find(book => book.apiId === id)
       setMonth(thisBook.month)
@@ -94,7 +94,7 @@ const Cicatriz = () => {
 
   const deleteReview = async (id) =>  {
     try {
-      await axios.delete(`http://localhost:5005/reviews/${id}`);
+      await axios.delete(`https://book-club-server.onrender.com/reviews/${id}`);
       getReviews(book)
     } catch (error) {
       console.log('error deleting the project');
@@ -117,7 +117,7 @@ const Cicatriz = () => {
         apiId: book.items[0].id
       };
 
-      await axios.post('http://localhost:5005/reviews', review);
+      await axios.post('https://book-club-server.onrender.com/reviews', review);
 
       // Update the reviews state directly with the new review
       setReviews(prevReviews => [...prevReviews, review]);
