@@ -38,16 +38,19 @@ import {
             <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: 'column', sm: 'row' }}>
-            <Button
-              rounded={8}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={50}
-              color={'white'}
-              bg={'#DF7F7F'}
-              _hover={{ bg: '#DF7F7F.500' }}>
-              Quero juntar-me ao Clube
-            </Button>
+           <a href="https://chat.whatsapp.com/H8MdpjbRn795Y2M6pMBhBA" target="_blank" rel="noopener noreferrer">
+              <Button
+                rounded={8}
+                size={'lg'}
+                fontWeight={'normal'}
+                px={50}
+                color={'white'}
+                bg={'#DF7F7F'}
+                _hover={{ bg: '#DF7F7F.500' }}
+              >
+                Quero juntar-me ao Clube
+              </Button>
+            </a>
           {/*   <Button
               rounded={'full'}
               size={'lg'}
