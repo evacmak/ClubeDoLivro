@@ -1,17 +1,31 @@
-import { Link } from "react-router-dom"
-
-const imgURL = 'https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/react-routing/404.gif'
+import { Link } from "react-router-dom";
+import errorImage from "../images/error.jpg";
 
 const Teapot = () => {
     return (
-        <div>
-            <h1>I'm a teapot</h1>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '80vh'
+        }}>
+            <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '30px', fontFamily: 'Bebas, sans-serif', color: '#333333' }}>Upsi, ERRO</h1>
+            <img 
+                src={errorImage} 
+                alt="404" 
+                style={{ 
+                    width: '50%', // Adjust the width as needed
+                    maxWidth: '400px', // Optionally set a maximum width
+                    marginBottom: '30px',
+                    marginTop: '20px'
+                }} 
+            />
             <Link to='/'>
-                <p>Back to Homepage</p>
+                <p >Voltar à Homepage</p>
             </Link>
-            <img src={imgURL} alt="404" className="page-img" />
         </div>
-    )
+    );
 }
 
-export default Teapot
+export default Teapot;
