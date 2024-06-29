@@ -14,7 +14,7 @@ const Navbar = () => {
             <ul>
                 <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="/">Home</NavLink>
                 <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="/livros">Livros</NavLink>
-                <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="/livros" style={{ backgroundColor: '#3526DE', padding: '5px 13px', color: 'white', fontWeight: '1000' }}>Aderir</NavLink>
+                <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="https://chat.whatsapp.com/H8MdpjbRn795Y2M6pMBhBA" target="_blank" style={{ backgroundColor: '#3526DE', padding: '5px 13px', color: 'white', fontWeight: '1000' }}>Aderir</NavLink>
             </ul>
         </nav>
     );

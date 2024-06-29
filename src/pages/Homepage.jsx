@@ -32,8 +32,8 @@ const Homepage = () => {
     <div>
 
     <div>
-    <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '60px' }}>Clube do Livro</h1>
-    <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '40px' }}>Eva & Marta</h1>
+    <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '80px', fontFamily: 'Bebas, sans-serif' }}>Clube do Livro</h1>
+    <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
     </div>
 
       <Hero />
