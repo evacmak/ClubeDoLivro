@@ -169,9 +169,11 @@
   font-family: "Lato", sans-serif;
 }
 
-.hot-girls{
+a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+}
 
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 60px;
-  
+a:hover {
+  text-decoration: none; /* Remove underline on hover */
 }
