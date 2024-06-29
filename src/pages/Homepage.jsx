@@ -15,10 +15,10 @@ const Homepage = () => {
   const getBooks = async () => {
     try {
       const firstBook = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=assistant%20to%20the%20villain"
+        "https://www.googleapis.com/books/v1/volumes?q=maria%francisca%gama"
       );
       const secondBook = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=love%20redesigned"
+        "https://www.googleapis.com/books/v1/volumes?q=angie%kim"
       );
 
       setBooks([firstBook.data, secondBook.data]);
@@ -161,31 +161,34 @@ const Homepage = () => {
 
       <Hero />
       <ThreeColumns />
+      <Center>
       <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Escolhas deste mês</h1>
-
+      
+      </Center>
+      
       <div>
         {books.length > 0 && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', marginTop: '3rem', marginBottom: '3rem'}}>
             {books[0]?.items[0] && (
-              <a href="https://clube-eva-marta.netlify.app/livro/assistant-to%20the%20villain-hannah-nicole%20maehrer" style={{ textDecoration: 'none' }}>
+              <a href="https://clube-eva-marta.netlify.app/livro/a-cicatriz-maria-francisca%20gama" style={{ textDecoration: 'none' }}>
                 <ImageCard
                   key={books[0].items[0].id} 
                   src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                   header={books[0].items[0].volumeInfo?.title || 'No title available'}
                   meta={books[0].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                  extra='Romantasy 🔪❤️'
+                  extra='Ficção'
                   style={{ width: '300px', height: '300px' }}
                 />
               </a>
             )}
             {books[1]?.items[0] && (
-              <a href="https://clube-eva-marta.netlify.app/livro/love-redesigned-lauren-asher" style={{ textDecoration: 'none' }}>
+              <a href="https://clube-eva-marta.netlify.app/livro/quociente-de%20felicidade-angie-kim" style={{ textDecoration: 'none' }}>
                 <ImageCard
                   key={books[1].items[0].id} 
                   src={books[1].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                   header={books[1].items[0].volumeInfo?.title || 'No title available'}
                   meta={books[1].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                  extra='Romance 👩‍❤️‍👨'
+                  extra='Thriller'
                   style={{ width: '300px', height: '300px' }}
                 />
               </a>
@@ -193,7 +196,11 @@ const Homepage = () => {
           </div>
         )}
       </div>
+      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify', fontWeight: 'bold' }}>Queridos leitores,</p>
+      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
 
+Junta-te a nós neste mês especial da Penguin, onde vamos explorar juntos o poder transformador das palavras.</p>
+<p style={{fontSize: '20px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", marginTop:'50px'}} >Boas leituras!</p>
 
       <div style={{ height: '100px' }}></div>
     </div>

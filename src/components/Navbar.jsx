@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <nav className={`Navbar ${theme}`}>
             <NavLink to="/">
-                <img src={logo} alt="Clube Logo" className="nav-logo" style={{width: "120px", height: "auto", marginLeft: "15px" }} />
+                <img src={logo} alt="Clube Logo" className="nav-logo" style={{width: "150px", height: "auto", marginLeft: "15px" }} />
             </NavLink>
             <ul>
                 <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="/" style={{fontFamily: 'Bebas, sans-serif', color: '#333333', fontSize:'25px', fontWeight:'600'}}>Home</NavLink>
