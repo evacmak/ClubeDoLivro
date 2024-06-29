@@ -3,7 +3,6 @@ import {
     Stack,
     Flex,
     Box,
-    Heading,
     Text,
     Button,
     Image,
@@ -24,8 +23,9 @@ import {
           direction={{ base: 'column', md: 'row' }}>
           <Stack align={'flex-start'} flex={1} spacing={{ base: 5, md: 10 }} gap={0}>
          <Text align={'start'} fontFamily={"Bebas Neue, sans-serif"} fontSize={'60px'} fontWeight={600} spacing={50} color={'#333333'} marginBottom={2} textAlign={'left'}>HOT GIRLS READ BOOKS</Text>
-         <Text align={'start'} fontFamily={"Permanent Marker, cursive"} fontSize={'20px'} fontWeight={300} color={'#3526DE'} marginBottom={8} textAlign={'left'}>O Clube E&M foi fundado por duas amigas que têm um grande gosto em comum: a leitura.</Text>
-            <Text align={'start'} color={'gray.500'} marginBottom={8} textAlign={'justify'}>
+         <Text align={'start'} fontFamily={"Permanent Marker, cursive"} fontSize={'20px'} fontWeight={300} color={'#3526DE'} marginBottom={8} textAlign={'left'}>
+         O Clube foi fundado por duas amigas que têm um grande gosto em comum: <span style={{ color: '#3526DE', fontFamily: "Permanent Marker, cursive", fontSize: '20px', fontWeight: '300'}}> a leitura</span></Text>
+            <Text align={'start'} color={'#333333'} marginBottom={8} textAlign={'justify'}>
               
               Os géneros que podes encontrar maioritariamente aqui são os seguintes:
             
