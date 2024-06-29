@@ -157,11 +157,6 @@ const Cicatriz = () => {
         buyBook = "https://play.google.com/store/books/details/Hannah_Nicole_Maehrer_Assistant_to_the_Villain?id=-5W7EAAAQBAJ"
     }
 
-  // Determine the image to use
-/*   const bookImage = (bookData.title.toLowerCase() === "it" && bookData.authors?.includes("Stephen King"))
-    ? itImage
-    : getBiggerImage(bookData.imageLinks.thumbnail); */
-
     let bookImage;
 
       if (bookData.title.toLowerCase() === "it" && bookData.authors?.includes("Stephen King")) {

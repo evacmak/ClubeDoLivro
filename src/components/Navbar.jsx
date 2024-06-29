@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { ThemeContext } from "../context/Theme.context";
 import { useContext } from "react";
-import logo from "../images/Clube Eva&Marta.png";
+import logo from "../images/logoClube.png";
 
 const Navbar = () => {
     const { theme } = useContext(ThemeContext);

@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import ThreeColumns from "../components/ThreeColumns";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Box, Center, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Image, Text, Divider } from "@chakra-ui/react";
 import livroHarry from "../images/livro-harry.jpeg";
 import cookiesFoto from "../images/cookies.jpeg";
 import evaFoto from "../images/evaBookshop.jpeg";
@@ -162,7 +162,10 @@ const Homepage = () => {
       <Hero />
       <ThreeColumns />
       <Center>
-      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Escolhas deste mês</h1>
+      <Divider w={'75%'}/>
+      </Center>
+      <Center>
+      <h1 style={{ textAlign: 'center', marginTop: '6rem' }}>Escolhas deste mês</h1>
       
       </Center>
       
@@ -196,7 +199,10 @@ const Homepage = () => {
           </div>
         )}
       </div>
-      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify', fontWeight: 'bold' }}>Queridos leitores,</p>
+      <Center>
+      <Divider w={'75%'}/>
+      </Center>
+      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify', fontWeight: 'bold', marginTop:'60px' }}>Queridos leitores,</p>
       <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
 
 Junta-te a nós neste mês especial da Penguin, onde vamos explorar juntos o poder transformador das palavras.</p>
