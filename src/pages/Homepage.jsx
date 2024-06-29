@@ -3,8 +3,12 @@ import Hero from "../components/Hero";
 import ThreeColumns from "../components/ThreeColumns";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Box, Center } from "@chakra-ui/react";
+import { Box, CardBody, Center, Image, Card, Text } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import livroHarry from "../images/livro-harry.jpeg";
+import cookiesFoto from "../images/cookies.jpeg";
+import evaFoto from "../images/evaBookshop.jpeg";
+import martaFoto from "../images/marta.jpeg";
 
 const Homepage = () => {
   const [books, setBooks] = useState([]);
@@ -33,17 +37,130 @@ const Homepage = () => {
 
     <div>
     <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '80px', fontFamily: 'Bebas, sans-serif', color: '#333333' }}>Clube do Livro</h1>
-      <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Bebas, sans-serif", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="https://chat.whatsapp.com/H8MdpjbRn795Y2M6pMBhBA" target="_blank" style={{ backgroundColor: '#3526DE', padding: '8px 20px', color: 'white', fontWeight: '1000', fontSize: '20px' }}>
-          Aderir
-        </NavLink>
-      </div>
+      <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
     </div>
     <Center>
-    <Box bg='tomato' w='80%' p={4} color='white'  style={{marginTop: '80px'}} borderRadius='lg' overflow='hidden'>
-  
-    </Box>
+      <Box display='flex' justifyContent='center' alignItems='center' marginTop='40px'>
+        <Box
+          maxW='400px'
+          borderWidth='1px'
+          borderRadius='lg'
+          overflow='hidden'
+          m={2}
+          position='relative' // Set position to relative for absolute positioning inside
+          boxShadow='lg' // Add boxShadow here to apply a large shadow
+          textAlign='center' // Center align the text
+        >
+          <Image src={cookiesFoto} maxH='400px' />
+
+          <Text
+            position='absolute'
+            top='50%' // Center vertically
+            left='50%' // Center horizontally
+            transform='translate(-50%, -50%)' // Move text back by 50% of its width and height to center it
+            fontSize='xl' // Adjust font size as needed
+            fontWeight='bold' // Adjust font weight as needed
+            color='white' // Adjust text color as needed
+            zIndex='1' // Ensure text appears above the image
+            p={0} // Padding around the text
+            borderRadius='md' // Rounded corners for the background
+            fontFamily={"Lato, sans-serif"}
+            textShadow='2px 2px 8px rgba(0, 0, 0, 0.8)'
+          >
+           Snacks & Books
+           </Text>
+        </Box>
+        <Box
+          maxW='400px'
+          borderWidth='1px'
+          borderRadius='lg'
+          overflow='hidden'
+          m={2}
+          position='relative' // Set position to relative for absolute positioning inside
+          boxShadow='lg' // Add boxShadow here to apply a large shadow
+          textAlign='center' // Center align the text
+          textShadow='2px 2px 8px rgba(0, 0, 0, 0.8)'
+        >
+          <Image src={martaFoto} maxH='400px' />
+
+          <Text
+            position='absolute'
+            top='50%' // Center vertically
+            left='50%' // Center horizontally
+            transform='translate(-50%, -50%)' // Move text back by 50% of its width and height to center it
+            fontSize='xl' // Adjust font size as needed
+            fontWeight='bold' // Adjust font weight as needed
+            color='white' // Adjust text color as needed
+            zIndex='1' // Ensure text appears above the image
+            p={0} // Padding around the text
+            borderRadius='md' // Rounded corners for the background
+            fontFamily={"Lato, sans-serif"}
+            textShadow='2px 2px 8px rgba(0, 0, 0, 0.8)'
+          >
+            Marta Santos
+          </Text>
+        </Box>
+
+        <Box
+          maxW='400px'
+          borderWidth='1px'
+          borderRadius='lg'
+          overflow='hidden'
+          m={2}
+          position='relative' // Set position to relative for absolute positioning inside
+          boxShadow='lg' // Add boxShadow here to apply a large shadow
+          textAlign='center' // Center align the text
+        >
+          <Image src={evaFoto} maxH='400px' />
+
+          <Text
+            position='absolute'
+            top='50%' // Center vertically
+            left='50%' // Center horizontally
+            transform='translate(-50%, -50%)' // Move text back by 50% of its width and height to center it
+            fontSize='xl' // Adjust font size as needed
+            fontWeight='bold' // Adjust font weight as needed
+            color='white' // Adjust text color as needed
+            zIndex='1' // Ensure text appears above the image
+            p={0} // Padding around the text
+            borderRadius='md' // Rounded corners for the background
+            fontFamily={"Lato, sans-serif"}
+            textShadow='2px 2px 8px rgba(0, 0, 0, 0.8)'
+          >
+            Eva Cmak
+          </Text>
+        </Box>
+
+        <Box
+          maxW='400px'
+          borderWidth='1px'
+          borderRadius='lg'
+          overflow='hidden'
+          m={2}
+          position='relative' // Set position to relative for absolute positioning inside
+          boxShadow='lg' // Add boxShadow here to apply a large shadow
+          textAlign='center' // Center align the text
+        >
+          <Image src={livroHarry} maxH='400px' />
+
+          <Text
+            position='absolute'
+            top='50%' // Center vertically
+            left='50%' // Center horizontally
+            transform='translate(-50%, -50%)' // Move text back by 50% of its width and height to center it
+            fontSize='xl' // Adjust font size as needed
+            fontWeight='bold' // Adjust font weight as needed
+            color='white' // Adjust text color as needed
+            zIndex='1' // Ensure text appears above the image
+            p={0} // Padding around the text
+            borderRadius='md' // Rounded corners for the background
+            fontFamily={"Lato, sans-serif"}
+            textShadow='2px 2px 8px rgba(0, 0, 0, 0.8)'
+          >
+            Marcadores do Clube
+          </Text>
+        </Box>
+      </Box>
     </Center>
 
       <Hero />
