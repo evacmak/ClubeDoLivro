@@ -2,6 +2,7 @@ import ImageCard from '../components/ImageCard';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import serpent from '../images/serpent.jpg';
 
 
 const Livros = () => {
@@ -52,6 +53,8 @@ const Livros = () => {
         const fourteenBook = await axios.get(
           "https://www.googleapis.com/books/v1/volumes?q=angie%kim"
         );
+
+        console.log('book', sixthBook)
   
         setBooks([firstBook.data, secondBook.data, thirdBook.data, fourthBook.data, 
           fifthBook.data, sixthBook.data, seventhBook.data, eighthBook.data, ninthBook.data, 
@@ -72,17 +75,17 @@ const Livros = () => {
     return (
       <div>
 
-        <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Livros 2024</h1>
+        <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '55px', fontFamily: 'Bebas, sans-serif'}}>Livros 2024</h1>
   
         {books.length > 0 && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem'}}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem', marginTop: '90px'}}>
           <Link to={`/livro/${formatTitle(books[12].items[0].volumeInfo?.title)+'-'+formatTitle(books[12].items[0].volumeInfo?.authors?.join(', '))}`}>
           {books[12]?.items[0] && (
               <ImageCard
                 src={books[12].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[12].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[12].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Ficção'
+                extra='Julho'
               />
             )}
             </Link>
@@ -92,7 +95,7 @@ const Livros = () => {
                 src={books[13].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[13].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[13].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Thriller'
+                extra='Julho'
               />
             )}
             </Link>
@@ -102,7 +105,7 @@ const Livros = () => {
                 src={books[0].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[0].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[0].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Romantasy 🔪❤️'
+                extra='Junho'
               />
             )}
             </Link>
@@ -112,7 +115,7 @@ const Livros = () => {
                 src={books[1].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[1].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[1].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Junho'
               />
             )}
             </Link>
@@ -122,7 +125,7 @@ const Livros = () => {
                 src={books[2].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[2].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[2].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Maio'
               />
             )}
             </Link>
@@ -132,7 +135,7 @@ const Livros = () => {
                 src={books[3].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[3].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[3].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Fantasia 🎪'
+                extra='Maio'
               />
             )}
             </Link>
@@ -142,17 +145,17 @@ const Livros = () => {
                 src={books[4].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[4].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[4].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Fantasia ⚔️🖤'
+                extra='Abril'
               />
             )}
             </Link>
             <Link to={`/livro/${formatTitle(books[5].items[0].volumeInfo?.title)+'-'+formatTitle(books[5].items[0].volumeInfo?.authors?.join(', '))}`}>
             {books[5]?.items[0] && (
               <ImageCard
-                src={books[5].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
+                src={ serpent || ''}
                 header={books[5].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[5].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Fantasia 🐍💙'
+                extra='Abril'
               />
             )}
             </Link>
@@ -162,7 +165,7 @@ const Livros = () => {
                 src={books[6].items[1].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[6].items[1].volumeInfo?.title || 'No title available'}
                 meta={books[6].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Ficção'
+                extra='Março'
               />
             )}
             </Link>
@@ -172,7 +175,7 @@ const Livros = () => {
                 src={books[7].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[7].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[7].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Romantasy 💜'
+                extra='Março'
               />
             )}
             </Link>
@@ -182,7 +185,7 @@ const Livros = () => {
                 src={books[8].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[8].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[8].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Romance 👩‍❤️‍👨'
+                extra='Fevereiro'
               />
             )}
             </Link>
@@ -192,7 +195,7 @@ const Livros = () => {
                 src={books[9].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[9].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[9].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Terror 🤡'
+                extra='Fevereiro'
               />
             )}
             </Link>
@@ -202,17 +205,17 @@ const Livros = () => {
                 src={books[10].items[0].volumeInfo?.imageLinks?.thumbnail || ''}
                 header={books[10].items[0].volumeInfo?.title || 'No title available'}
                 meta={books[10].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Fantasia 🃏'
+                extra='Janeiro'
               />
             )}
             </Link>
-            <Link to={`/livro/${formatTitle(books[11].items[0].volumeInfo?.title)+'-'+formatTitle(books[11].items[0].volumeInfo?.authors?.join(', '))}`}>
-            {books[11]?.items[0] && (
+            <Link to={`/livro/${formatTitle(books[11].items[2].volumeInfo?.title)+'-'+formatTitle(books[11].items[2].volumeInfo?.authors?.join(', '))}`}>
+            {books[11]?.items[2] && (
               <ImageCard
-                src={books[11].items[3].volumeInfo?.imageLinks?.thumbnail || ''}
-                header={books[11].items[0].volumeInfo?.title || 'No title available'}
-                meta={books[11].items[0].volumeInfo?.authors?.join(', ') || 'No authors available'}
-                extra='Ficção'
+                src={books[11].items[2].volumeInfo?.imageLinks?.thumbnail || ''}
+                header={books[11].items[2].volumeInfo?.title || 'No title available'}
+                meta={books[11].items[2].volumeInfo?.authors?.join(', ') || 'No authors available'}
+                extra='Janeiro'
               />
             )}
             </Link>

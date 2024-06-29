@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import {Button, Center, Box, Radio, RadioGroup, FormControl, FormLabel, HStack, FormHelperText, Input } from '@chakra-ui/react';
+import {Button, Center, Box, Radio, RadioGroup, FormControl, FormLabel, HStack, FormHelperText, Input, VStack } from '@chakra-ui/react';
 
 const EditReview = () => {
     const [name, setName] = useState("");
@@ -69,75 +69,73 @@ const EditReview = () => {
     }, [reviewId]);
 
     return (
-        <div>
-            <h2>Edit Review</h2>
-            <form onSubmit={handleSubmit}>
-            <Input
-              variant='filled'
-              color='black'
-              bg='white'
-              type='text'
-              name='name'
-              placeholder='Nome'
-              width='800px'
-              height='50px'
-              marginBottom={'20px'}
-              value={name}
-              onChange={handleName}
-            />
-
-            <Center>
-              <Box name='emojis' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
-                <FormControl as='fieldset'>
-                  <FormLabel as='legend'>Como te sentiste ao ler o livro?</FormLabel>
-                  <RadioGroup value={emoji} onChange={handleEmoji}>
-                    <HStack spacing='24px'>
-                      <Radio value='😭'><p style={{fontSize: '20px'}}>😭</p></Radio>
-                      <Radio value='😱'><p style={{fontSize: '20px'}}>😱</p></Radio>
-                      <Radio value='🤡'><p style={{fontSize: '20px'}}>🤡</p></Radio>
-                      <Radio value='🥰'><p style={{fontSize: '20px'}}>🥰</p></Radio>
-                    </HStack>
-                  </RadioGroup>
-                  <FormHelperText></FormHelperText>
-                </FormControl>
-              </Box>
-            </Center>
-            <Center>
-              <Box name='rating' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
-                <FormControl as='fieldset'>
-                  <FormLabel as='legend'>Quantas estrelas dás ao livro?</FormLabel>
-                  <RadioGroup value={rating} onChange={handleRating}>
-                    <HStack spacing='24px'>
-                      <Radio value='⭐️'><p style={{fontSize: '20px'}}>⭐️</p></Radio>
-                      <Radio value='⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️</p></Radio>
-                      <Radio value='⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️</p></Radio>
-                      <Radio value='⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️</p></Radio>
-                      <Radio value='⭐️⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️⭐️</p></Radio>
-                    </HStack>
-                  </RadioGroup>
-                  <FormHelperText></FormHelperText>
-                </FormControl>
-              </Box>
-            </Center>
-
-            <Input
-              variant='filled'
-              color='black'
-              bg= 'white'
-              type='text'
-              name='comment'
-              placeholder='Se escreveres spoilers, adiciona *SPOILER ALERT* no início da review'
-              width='800px'
-              height='200px'
-              fontFamily= "Lato, sans-serif"
-              value={comment}
-              onChange={handleComment}
-            />
-                <Button type="submit" variant='solid' bg='#3526DE' color='#FFFAF3' style={{ fontFamily: 'Lato, sans-serif', fontSize: '14px' }}>
-                    Editar
-                </Button>
-            </form>
-        </div>
+        <Center>
+            <Box w="800px" p={4}>
+                <VStack spacing={4}>
+                    <h2>Edit Review</h2>
+                    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+                        <Input
+                            variant='filled'
+                            color='black'
+                            bg='white'
+                            type='text'
+                            name='name'
+                            placeholder='Nome'
+                            width='100%'
+                            height='50px'
+                            marginBottom={'20px'}
+                            value={name}
+                            onChange={handleName}
+                        />
+                        <Box name='emojis' bg='white' w='100%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+                            <FormControl as='fieldset'>
+                                <FormLabel as='legend'>Como te sentiste ao ler o livro?</FormLabel>
+                                <RadioGroup value={emoji} onChange={handleEmoji}>
+                                    <HStack spacing='24px'>
+                                        <Radio value='😭'><p style={{fontSize: '20px'}}>😭</p></Radio>
+                                        <Radio value='😱'><p style={{fontSize: '20px'}}>😱</p></Radio>
+                                        <Radio value='🤡'><p style={{fontSize: '20px'}}>🤡</p></Radio>
+                                        <Radio value='🥰'><p style={{fontSize: '20px'}}>🥰</p></Radio>
+                                    </HStack>
+                                </RadioGroup>
+                                <FormHelperText></FormHelperText>
+                            </FormControl>
+                        </Box>
+                        <Box name='rating' bg='white' w='100%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+                            <FormControl as='fieldset'>
+                                <FormLabel as='legend'>Quantas estrelas dás ao livro?</FormLabel>
+                                <RadioGroup value={rating} onChange={handleRating}>
+                                    <HStack spacing='24px'>
+                                        <Radio value='⭐️'><p style={{fontSize: '20px'}}>⭐️</p></Radio>
+                                        <Radio value='⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️</p></Radio>
+                                        <Radio value='⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️</p></Radio>
+                                        <Radio value='⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️</p></Radio>
+                                        <Radio value='⭐️⭐️⭐️⭐️⭐️'><p style={{fontSize: '20px'}}>⭐️⭐️⭐️⭐️⭐️</p></Radio>
+                                    </HStack>
+                                </RadioGroup>
+                                <FormHelperText></FormHelperText>
+                            </FormControl>
+                        </Box>
+                        <Input
+                            variant='filled'
+                            color='black'
+                            bg='white'
+                            type='text'
+                            name='comment'
+                            placeholder='Se escreveres spoilers, adiciona *SPOILER ALERT* no início da review'
+                            width='100%'
+                            height='200px'
+                            fontFamily= "Lato, sans-serif"
+                            value={comment}
+                            onChange={handleComment}
+                        />
+                        <Button type="submit" variant='solid' bg='#3526DE' color='#FFFAF3' style={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', marginTop: '20px' }}>
+                            Editar
+                        </Button>
+                    </form>
+                </VStack>
+            </Box>
+        </Center>
     );
 };
 
