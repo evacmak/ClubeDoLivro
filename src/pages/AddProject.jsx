@@ -21,7 +21,7 @@ const AddProject = () => {
             const project = {
                 title, description
             }
-            await axios.post('https://book-club-server.onrender.com/reviews', project)
+            await axios.post('https://book-club-server-ten.vercel.app/reviews', project)
 
             //once the project is created redirect the user to the list of projects (webpage)
             navigate("/projects")

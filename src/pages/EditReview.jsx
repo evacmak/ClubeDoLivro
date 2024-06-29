@@ -40,7 +40,7 @@ const EditReview = () => {
 
         try {
             const review = { name, comment, emoji, rating, apiId };
-            await axios.put(`https://book-club-server.onrender.com/reviews/${reviewId}`, review);
+            await axios.put(`https://book-club-server-ten.vercel.app/reviews/${reviewId}`, review);
             const title = searchParams.get("title")
             navigate(`/livro/${title}`);
         } catch (error) {
@@ -50,7 +50,7 @@ const EditReview = () => {
 
     const getSingleReview = async (id) => {
         try {
-            const response = await axios.get(`https://book-club-server.onrender.com/reviews/${id}`);
+            const response = await axios.get(`https://book-club-server-ten.vercel.app/reviews/${id}`);
             // Debugging: Log the API response
             console.log('API response:', response.data);
 

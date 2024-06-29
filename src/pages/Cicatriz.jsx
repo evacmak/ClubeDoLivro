@@ -53,7 +53,7 @@ const Cicatriz = () => {
 
   const getReviews = async (bookData) => {
     try {
-      const reviewsResponse = await axios.get("https://book-club-server.onrender.com/reviews");
+      const reviewsResponse = await axios.get("https://book-club-server-ten.vercel.app/reviews");
       const bookReviews = reviewsResponse.data.filter(reviewedBook => reviewedBook.apiId === bookData.items[0].id);
       setReviews(bookReviews);
     } catch (error) {
@@ -63,7 +63,7 @@ const Cicatriz = () => {
 
   const getMonth = async (id) => {
     try {
-      const response = await axios.get("https://book-club-server.onrender.com/books");
+      const response = await axios.get("https://book-club-server-ten.vercel.app/books");
       const thisBook = response.data.find(book => book.apiId === id);
       setMonth(thisBook.month);
     } catch (error) {
@@ -77,7 +77,7 @@ const Cicatriz = () => {
 
   const deleteReview = async (id) => {
     try {
-      await axios.delete(`https://book-club-server.onrender.com/reviews/${id}`);
+      await axios.delete(`https://book-club-server-ten.vercel.app/reviews/${id}`);
       getReviews(book);
     } catch (error) {
       console.log('error deleting the project');
@@ -100,7 +100,7 @@ const Cicatriz = () => {
         apiId: book.items[0].id
       };
 
-      await axios.post('https://book-club-server.onrender.com/reviews', review);
+      await axios.post('https://book-club-server-ten.vercel.app/reviews', review);
       setReviews(prevReviews => [...prevReviews, review]);
 
       // Clear the form fields
@@ -183,6 +183,7 @@ const Cicatriz = () => {
     <>
       <div className="container">
         <div className="book-content"
+        style={{alignItems: 'flex-start'}}
           >
         <img
           className="book-image"
