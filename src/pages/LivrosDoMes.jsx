@@ -3,10 +3,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import serpent from '../images/serpent.jpg';
+import { Loader } from 'semantic-ui-react';
 
 
 const Livros = () => {
     const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getBooks = async () => {
       try {
@@ -61,6 +63,8 @@ const Livros = () => {
           tenBook.data, elevenBook.data, twelveBook.data, thirteenBook.data, fourteenBook.data]);
       } catch (error) {
         console.log("Error fetching the books", error);
+      } finally {
+        setLoading(false);
       }
     };
   
@@ -72,11 +76,15 @@ const Livros = () => {
       return title.toLowerCase().replace(' ', '-')
     }
   
+    if (loading) {
+      return <h1 style={{marginTop: '50px', fontFamily: 'Lato, sans-serif'}}>A carregar...</h1>;
+    }
+
     return (
       <div>
 
         <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '55px', fontFamily: 'Bebas, sans-serif'}}>Livros 2024</h1>
-  
+
         {books.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', margin: '3rem', marginTop: '90px'}}>
           <Link to={`/livro/${formatTitle(books[12].items[0].volumeInfo?.title)+'-'+formatTitle(books[12].items[0].volumeInfo?.authors?.join(', '))}`}>

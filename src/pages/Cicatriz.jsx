@@ -115,7 +115,7 @@ const Cicatriz = () => {
   };
 
   if (loading) {
-    return <p className="loading">A carregar...</p>;
+    return <h1 style={{marginTop: '50px', fontFamily: 'Lato, sans-serif'}}>A carregar...</h1>;
   }
 
   if (error) {

@@ -5,6 +5,7 @@ import InfoPop from "../components/InfoPop";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Box, Icon } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
   const [books, setBooks] = useState([]);
@@ -33,7 +34,12 @@ const Homepage = () => {
 
     <div>
     <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '80px', fontFamily: 'Bebas, sans-serif' }}>Clube do Livro</h1>
-    <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
+      <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
+      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <NavLink className={({ isActive }) => (isActive ? 'selected' : '')} to="https://chat.whatsapp.com/H8MdpjbRn795Y2M6pMBhBA" target="_blank" style={{ backgroundColor: '#3526DE', padding: '8px 20px', color: 'white', fontWeight: '1000', fontSize: '20px' }}>
+          Aderir
+        </NavLink>
+      </div>
     </div>
 
       <Hero />
