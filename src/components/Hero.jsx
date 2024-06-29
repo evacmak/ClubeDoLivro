@@ -22,11 +22,14 @@ import {
           spacing={{ base: 8, md: 10 }}
           py={{ base: 20, md: 28 }}
           direction={{ base: 'column', md: 'row' }}>
-          <Stack align={'center'} flex={1} spacing={{ base: 5, md: 10 }}>
-            <Text align={'start'} color={'gray.500'}>
-              O Clube E&M foi fundado por duas amigas que têm um grande gosto em comum: a leitura.
+          <Stack align={'flex-start'} flex={1} spacing={{ base: 5, md: 10 }} gap={0}>
+         <Text align={'start'} fontFamily={"Bebas Neue, sans-serif"} fontSize={'60px'} fontWeight={600} spacing={50} color={'#333333'} marginBottom={2} textAlign={'left'}>HOT GIRLS READ BOOKS</Text>
+         <Text align={'start'} fontFamily={"Permanent Marker, cursive"} fontSize={'20px'} fontWeight={300} color={'#3526DE'} marginBottom={8} textAlign={'left'}>O Clube E&M foi fundado por duas amigas que têm um grande gosto em comum: a leitura.</Text>
+            <Text align={'start'} color={'gray.500'} marginBottom={8} textAlign={'justify'}>
+              
               Os géneros que podes encontrar maioritariamente aqui são os seguintes:
-              <ul >
+            
+              <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
                 <li>Fantasia 🧚‍♀️</li>
                 <li>Romance 🥰</li>
                 <li>Thrillers 👀</li>
@@ -36,13 +39,13 @@ import {
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: 'column', sm: 'row' }}>
             <Button
-              rounded={'full'}
+              rounded={8}
               size={'lg'}
               fontWeight={'normal'}
               px={50}
-              colorScheme={'gray'}
-              bg={'gray.400'}
-              _hover={{ bg: 'gray.500' }}>
+              color={'white'}
+              bg={'#DF7F7F'}
+              _hover={{ bg: '#DF7F7F.500' }}>
               Quero juntar-me ao Clube
             </Button>
           {/*   <Button
@@ -75,7 +78,7 @@ import {
               height={'full'}
               rounded={'2xl'}
               boxShadow={'2xl'}
-              width={'450px'}
+              width={'600px'}
               overflow={'hidden'}>
               {/* <IconButton
                 aria-label={'Play Button'}

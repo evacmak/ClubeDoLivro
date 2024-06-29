@@ -4,7 +4,7 @@ import ThreeColumns from "../components/ThreeColumns";
 import InfoPop from "../components/InfoPop";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Box, Icon } from "@chakra-ui/react";
+import { Box, Center, Icon } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
@@ -41,6 +41,11 @@ const Homepage = () => {
         </NavLink>
       </div>
     </div>
+    <Center>
+    <Box bg='tomato' w='80%' p={4} color='white'  style={{marginTop: '80px'}} borderRadius='lg' overflow='hidden'>
+  This is the Box
+    </Box>
+    </Center>
 
       <Hero />
       <ThreeColumns />
