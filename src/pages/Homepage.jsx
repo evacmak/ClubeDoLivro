@@ -3,11 +3,12 @@ import Hero from "../components/Hero";
 import ThreeColumns from "../components/ThreeColumns";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Box, Center, Image, Text, Divider } from "@chakra-ui/react";
+import { Box, Center, Image, Text, Divider, Flex } from "@chakra-ui/react";
 import livroHarry from "../images/livro-harry.jpeg";
 import cookiesFoto from "../images/cookies.jpeg";
 import evaFoto from "../images/evaBookshop.jpeg";
 import martaFoto from "../images/marta.jpeg";
+import sticker from "../images/sticker.png"
 
 const Homepage = () => {
   const [books, setBooks] = useState([]);
@@ -171,14 +172,21 @@ const Homepage = () => {
 
   
       <Box w='100%'>
+
+      <Box>
+        <img src={sticker} alt="sticker" style={{position: "absolute", width:'150px', marginLeft: '1000px', marginTop:'35px'}}/>
+      </Box>
+
+
       <Center>
+    
       <h1 style={{ textAlign: 'center', marginTop: '6rem' }}>Escolhas deste mês:</h1>     
       
       </Center>
       
       <div>
         {books.length > 0 && (
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', marginTop: '3rem', marginBottom: '3rem'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', marginTop: '4rem', marginBottom: '1rem'}}>
             {books[0]?.items[0] && (
               <a href="https://clube-eva-marta.netlify.app/livro/a-cicatriz-maria-francisca%20gama" style={{ textDecoration: 'none' }}>
                 <ImageCard
