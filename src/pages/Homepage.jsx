@@ -221,7 +221,8 @@ const Homepage = () => {
           <Center>
       <Box w='65%' pb='3rem'>
       <div>
-      <p style={{textAlign:'justify', fontWeight: 'bold', marginTop:'60px' }}>Queridos leitores,</p>
+      <h2 style={{textAlign:'justify', fontWeight: 'bold', marginTop:'40px' }}>Mensagem Eva e Marta 💘</h2>
+      <p style={{textAlign:'justify'}}>Queridos leitores,</p>
       <p style={{textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
 
 Junta-te a nós neste mês especial da Penguin, onde vamos explorar juntos o poder transformador das palavras.</p>
