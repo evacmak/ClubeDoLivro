@@ -26,7 +26,7 @@ import {
          <Text align={'start'} fontFamily={"Permanent Marker, cursive"} fontSize={'20px'} fontWeight={300} color={'#3526DE'} marginBottom={7} textAlign={'left'}>
          O Clube foi fundado por duas amigas que têm um grande gosto em comum: <span style={{ color: '#3526DE', fontFamily: "Permanent Marker, cursive", fontSize: '20px', fontWeight: '300'}}> a leitura</span></Text>
             <Text align={'start'} color={'#333333'} marginBottom={4} textAlign={'justify'}>
-            Conhecemo-nos através do Tiktok e a partir daí ficámos inseparáveis. Depois de muitas tardes juntas, muitos livros juntas e muitos videos juntas 
+            Conhecemo-nos através do Tiktok e a partir daí ficámos inseparáveis. Depois de muitas tardes juntas, muitos livros lidos e muitos videos feitos 
             decidimos fazer um Clube de Leitura. Estas leituras são feitas e discutidas online, no entanto realizamos uma vez por outra encontros presenciais.
             </Text>
             <Text align={'start'} color={'#333333'} marginBottom={4} textAlign={'justify'}>

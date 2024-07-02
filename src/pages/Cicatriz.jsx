@@ -178,7 +178,7 @@ const Cicatriz = () => {
     <>
       <div className="container">
         <div className="book-content"
-        style={{alignItems: 'flex-start'}}
+        style={{alignItems: 'flex-start', marginTop: '20px'}}
           >
         <img
           className="book-image"
@@ -203,10 +203,11 @@ const Cicatriz = () => {
           </div>
         </div>
       </div>
-      <Box bg='#FFFAF3 ' w='100%' p={4} color='white'>
+      <Center>
+      <Box bg='#FFFAF3 ' w='70%' p={4} color='black'>
         <form onSubmit={handleSubmit}>
           <FormControl>
-            <FormLabel sx={{ fontFamily: 'Lato, sans-serif', fontSize: '25px', fontWeight: 'bold', color: '#333333' }} marginLeft={'200px'}>Adiciona a tua review deste livro</FormLabel>
+            <FormLabel sx={{textAlign:'Center', fontFamily: 'Lato, sans-serif', fontSize: '25px', fontWeight: 'bold', color: '#333333' }} marginTop={'50px'} marginBottom={'35px'}>Adiciona a tua review deste livro</FormLabel>
             <Input
               variant='filled'
               color='black'
@@ -214,15 +215,17 @@ const Cicatriz = () => {
               type='text'
               name='name'
               placeholder='Nome'
-              width='800px'
+              width='100%'
               height='50px'
+              borderWidth={'1px'}
+              borderColor={'#E2E8F0'}
               marginBottom={'20px'}
               value={name}
               onChange={handleName}
             />
 
             <Center>
-              <Box name='emojis' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+              <Box name='emojis' bg='white' w='100%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
                 <FormControl as='fieldset'>
                   <FormLabel as='legend'>Como te sentiste ao ler o livro?</FormLabel>
                   <RadioGroup value={emoji} onChange={handleEmoji}>
@@ -238,7 +241,7 @@ const Cicatriz = () => {
               </Box>
             </Center>
             <Center>
-              <Box name='rating' bg='white' w='67%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
+              <Box name='rating' bg='white' w='100%' p={4} color='black' borderWidth='1px' borderRadius='lg' overflow='hidden' mb={4}>
                 <FormControl as='fieldset'>
                   <FormLabel as='legend'>Quantas estrelas dás ao livro?</FormLabel>
                   <RadioGroup value={rating} onChange={handleRating}>
@@ -262,9 +265,11 @@ const Cicatriz = () => {
               type='text'
               name='comment'
               placeholder='Se escreveres spoilers, adiciona *SPOILER ALERT* no início da review'
-              width='800px'
+              width='100%'
               height='200px'
               fontFamily="Lato, sans-serif"
+               borderWidth={'1px'}
+              borderColor={'#E2E8F0'}
               value={comment}
               onChange={handleComment}
             />
@@ -273,9 +278,10 @@ const Cicatriz = () => {
           </FormControl>
         </form>
       </Box>
+      </Center>
       {reviews.length > 0 && (
         <Center>
-          <Box bg='#FFFAF3' w='67%' p={4} color='black'>
+          <Box bg='#FFFAF3' w='70%' p={4} color='black'>
             <h2 style={{ color: 'black', fontFamily: 'Lato, sans-serif', fontSize: '30px', marginTop: '20px' }}>Reviews:</h2>
             {reviews.map((review, index) => (
               <Card key={index}
@@ -287,7 +293,7 @@ const Cicatriz = () => {
                 <Avatar bg='#DF7F7F' color='#FFFFFF' name={review.name} size='md' mr={4} marginLeft='30px' marginTop='20px' />
                 <Stack>
                   <CardBody>
-                    <Text py='2' textAlign={"justify"}>
+                    <Text py='2' textAlign={"justify"} marginRight={'30px'}>
                       <p><strong>Nome: </strong>{review.name}</p>
                       <p><strong>Como me senti: </strong>{review.emoji}</p>
                       <p><strong>Rating: </strong>{review.rating}</p>

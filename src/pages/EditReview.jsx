@@ -70,7 +70,7 @@ const EditReview = () => {
 
     return (
         <Center>
-            <Box w="800px" p={4}>
+            <Box w="60%" p={4}>
                 <VStack spacing={4}>
                     <h2>Edit Review</h2>
                     <form onSubmit={handleSubmit} style={{ width: '100%' }}>

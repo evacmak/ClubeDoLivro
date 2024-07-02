@@ -20,7 +20,7 @@ export default function ThreeColumns() {
         <Center width="100%">
           <Container style={{ maxWidth: '100%' }}>
             <Box borderRadius='lg'>
-              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={20}>
+              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={150}>
                 <Feature
                   icon={MdAccountCircle}
                   title={'1º Passo'}

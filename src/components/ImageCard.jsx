@@ -11,7 +11,7 @@ import {
   } from 'semantic-ui-react'
   
   const ImageCard = ({ src, header, meta, description, extra }) => (
-    <Card style={{width: '180px', marginTop: 0}}>
+    <Card style={{width: '180px', marginTop: 0,marginBottom:'80px'}}>
       <Image 
         src={src} 
         style={{ width: '100%'}} 

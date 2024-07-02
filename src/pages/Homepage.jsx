@@ -33,6 +33,7 @@ const Homepage = () => {
 
   return (
     <div>
+ 
       <div>
         <h1 style={{ textAlign: 'center', marginTop: '2rem', fontSize: '100px', fontFamily: 'Bebas, sans-serif', color: '#333333' }}>Clube do Livro</h1>
         <h1 style={{ textAlign: 'center', marginTop: '5px', fontSize: '30px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", fontWeight: '1' }}>Eva & Marta</h1>
@@ -160,10 +161,14 @@ const Homepage = () => {
       </Center>
 
       <Hero />
+      <Center>
+      <Divider w={'75%'}/>
+      </Center>
       <ThreeColumns />
       <Center>
       <Divider w={'75%'}/>
       </Center>
+      <Box w='100%'>
       <Center>
       <h1 style={{ textAlign: 'center', marginTop: '6rem' }}>Escolhas deste mês</h1>
       
@@ -199,16 +204,22 @@ const Homepage = () => {
           </div>
         )}
       </div>
-      <Center>
+          </Box>
+          <Center>
       <Divider w={'75%'}/>
       </Center>
-      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify', fontWeight: 'bold', marginTop:'60px' }}>Queridos leitores,</p>
-      <p style={{marginLeft: '200px', marginRight: '200px', textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
+          <Center>
+      <Box w='75%'>
+      <div>
+      <p style={{textAlign:'justify', fontWeight: 'bold', marginTop:'60px' }}>Queridos leitores,</p>
+      <p style={{textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
 
 Junta-te a nós neste mês especial da Penguin, onde vamos explorar juntos o poder transformador das palavras.</p>
 <p style={{fontSize: '20px', fontFamily: "Permanent Marker, cursive", color: "#3526DE", marginTop:'50px'}} >Boas leituras!</p>
 
-      <div style={{ height: '100px' }}></div>
+</div>
+      </Box>
+      </Center>
     </div>
   );
 };
