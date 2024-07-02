@@ -168,9 +168,11 @@ const Homepage = () => {
       <Center>
       <Divider w={'75%'}/>
       </Center>
+
+  
       <Box w='100%'>
       <Center>
-      <h1 style={{ textAlign: 'center', marginTop: '6rem' }}>Escolhas deste mês</h1>
+      <h1 style={{ textAlign: 'center', marginTop: '6rem' }}>Escolhas deste mês:</h1>     
       
       </Center>
       
@@ -209,7 +211,7 @@ const Homepage = () => {
       <Divider w={'75%'}/>
       </Center>
           <Center>
-      <Box w='75%'>
+      <Box w='65%' pb='3rem'>
       <div>
       <p style={{textAlign:'justify', fontWeight: 'bold', marginTop:'60px' }}>Queridos leitores,</p>
       <p style={{textAlign:'justify'}}>Estes livros foram cuidadosamente selecionados para enriquecer as discussões e proporcionar momentos inesquecíveis de leitura e aprendizagem. Preparem-se para mergulhar em histórias que irão inspirar e conectar-nos ainda mais como comunidade literária.
