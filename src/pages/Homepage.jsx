@@ -174,7 +174,7 @@ const Homepage = () => {
       <Box w='100%'>
 
       <Box>
-        <img src={sticker} alt="sticker" style={{position: "absolute", width:'150px', marginLeft: '1000px', marginTop:'35px'}}/>
+        <img src={sticker} alt="sticker" style={{position: "absolute", width:'150px', marginLeft: '1070px', marginTop:'35px'}}/>
       </Box>
 
 
